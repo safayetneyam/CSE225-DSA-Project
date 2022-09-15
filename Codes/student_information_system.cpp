@@ -536,5 +536,144 @@ void updateInfoByID() {
             updateStudentInfo();
         }
     }
+}
 
+void deleteAllInfo(){
+    while (true) {
+        student *temp = head;
+        if (temp == NULL) {
+            head = NULL;
+            tail = NULL;
+            return;
+        }
+        if (head == tail) {
+            head = NULL;
+            tail = NULL;
+        }
+        else {
+            head = head -> next;
+            head -> prev = NULL;
+        }
+        delete temp;
+    }
+}
+
+void deleteNode(student *delNode) {
+    if (head == tail) {
+        head = NULL;
+        tail = NULL;
+        delete delNode;
+        return;
+    }
+    if (head == delNode) {
+        head = head -> next;
+        head -> prev = NULL;
+    }
+    if (tail == delNode) {
+        tail -> prev -> next = NULL;
+        tail = tail -> prev;
+    }
+    if (head == tail) return;
+    if (delNode -> next != NULL) {
+        delNode -> next -> prev = delNode -> prev;
+    }
+    if (delNode -> prev != NULL) {
+        delNode -> prev -> next = delNode -> next;
+    }
+    delete delNode;
+    return;
+}
+
+void deleteByID(int id) {
+    student *cur = head;
+    while (cur != NULL) {
+        if (cur -> id == id) {
+            deleteNode(cur);
+            return;
+        } cur = cur -> next; 
+    }
+}
+
+void deleteByName(string name) {
+    student *cur = head;
+    while (cur != NULL) {
+        if (compareString(cur -> name, name)) {
+            deleteNode(cur);
+            return;
+        } cur = cur -> next; 
+    }
+}
+
+void deleteByCGPA(double cgpa, string dir) {
+    student *cur = head;
+    student *next;
+    if (dir == "=") {
+        while (cur != NULL) {
+            if (cur -> cgpa == cgpa) {
+                next = cur -> next;
+                deleteNode(cur);
+                cur = next;
+            } else cur = cur -> next;
+        }
+    } else if (dir == ">") {
+        while (cur != NULL) {
+            if (cur -> cgpa > cgpa) {
+                next = cur -> next;
+                deleteNode(cur);
+                cur = next;
+            } else cur = cur -> next;
+        }
+    } else if (dir == ">=") {
+        while (cur != NULL) {
+            if (cur -> cgpa >= cgpa) {
+                next = cur -> next;
+                deleteNode(cur);
+                cur = next;
+            } else cur = cur -> next;
+        }
+    } else if (dir == "<") {
+        while (cur != NULL) {
+            if (cur -> cgpa < cgpa && cur -> cgpa != -1) {
+                next = cur -> next;
+                deleteNode(cur);
+                cur = next;
+            } else cur = cur -> next;
+        }
+    } else if (dir == "<=") {
+        while (cur != NULL) {
+            if (cur -> cgpa <= cgpa && cur -> cgpa != -1) {
+                next = cur -> next;
+                deleteNode(cur);
+                cur = next;
+            } else cur = cur -> next;
+        }
+    }
+}
+
+void deleteByGradStatus() {
+    student *cur = head;
+    student *next;
+    while (cur != NULL) {
+        if (cur -> isGraduated == 1 && cur -> isGraduated != -1) {
+            next = cur -> next;
+            deleteNode(cur);
+            cur = next;
+        } else {
+            cur = cur -> next; 
+        }
+    }
+}
+
+void deleteProbatedStudents() {
+    student *cur = head;
+    student *next;
+    while (cur != NULL) {
+        if (cur -> cgpa < 2.0 && cur -> cgpa != -1.0) {
+            next = cur -> next;
+            deleteNode(cur);
+            cur = next;
+        } else {
+            cur = cur -> next; 
+        }
+    }
 }
