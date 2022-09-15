@@ -1919,3 +1919,104 @@ void printSpecificID(student *updCur) {
     }
     cout << endl << endl;
 }
+
+void inputManipulation() {
+    fstream newFile;
+    newFile.open("dataset.txt", ios::in);
+    if (newFile.is_open()) {
+        string line;
+        student *newStudent;
+        int counter = 0;
+        while (!newFile.eof()) {
+            getline(newFile, line);
+            if (counter % 14 == 0) {
+                newStudent = new student();
+                int id = stringToInteger(line);
+                newStudent -> id = id;
+            } else if (counter % 14 == 1) {
+                newStudent -> name = line;
+            } else if (counter % 14 == 2) {
+                double credits = stod(line);
+                newStudent -> completedCredits = credits;
+            } else if (counter % 14 == 3) {
+                double cgpa = stod(line);
+                newStudent -> cgpa = cgpa;
+            } else if (counter % 14 == 4) {
+                newStudent -> dob = line;
+            } else if (counter % 14 == 5) {
+                newStudent -> email = line;
+            } else if (counter % 14 == 6) {
+                newStudent -> contact = line;
+            } else if (counter % 14 == 7) {
+                newStudent -> address = line;
+            } else if (counter % 14 == 8) {
+                newStudent -> bloodGroup = line;
+            } else if (counter % 14 == 9) {
+                newStudent -> department = line;
+            } else if (counter % 14 == 10) {
+                int semester = stringToInteger(line);
+                newStudent -> semester = semester;
+            } else if (counter % 14 == 11) {
+                int isPaymentDone = stringToInteger(line);
+                newStudent -> isPaymentDone = isPaymentDone;
+            } else if (counter % 14 == 12) {
+                int isScholarshipCandidate = stringToInteger(line);
+                newStudent -> isScholarshipCandidate = isScholarshipCandidate;
+            } else if (counter % 14 == 13) {
+                int isGraduated = stringToInteger(line);
+                newStudent -> isGraduated = isGraduated;
+                
+                insertStudent(newStudent);
+            }
+            counter++;
+        }
+        newFile.close();
+    }
+}
+
+int stringToInteger(string line) {
+    int num = 0;
+    int n = line.length();
+    if (line == "0") {
+        return 0;
+    }
+    if (line[0] == '-') {
+        for (int i = 1; i < n; i++) {
+            num = num * 10 + (int(line[i]) - 48);          
+        } num *= -1;
+    } else {
+        for (int i = 0; i < n; i++) {
+            num = num * 10 + (int(line[i]) - 48);
+        }
+    }
+    return num;
+}
+
+void outputManipulation() {
+    fstream newFile;
+    newFile.open("dataset.txt", ios::out);
+    if (newFile.is_open()) {
+        student *cur = head;
+        while (cur != NULL) {
+            string c_id = to_string(cur -> id);
+            newFile << c_id << endl;
+            newFile << cur -> name << endl;
+            string c_completedCredits = to_string(cur -> completedCredits);
+            newFile << c_completedCredits << endl;
+            string c_cgpa = to_string(cur -> cgpa);
+            newFile << c_cgpa << endl;
+            newFile << cur -> dob << endl;
+            newFile << cur -> email << endl;
+            newFile << cur -> contact << endl;
+            newFile << cur -> address << endl;
+            newFile << cur -> bloodGroup << endl;
+            newFile << cur -> department << endl;
+            newFile << cur -> semester <<endl;
+            newFile << cur -> isPaymentDone <<endl;
+            newFile << cur -> isScholarshipCandidate <<endl;
+            newFile << cur -> isGraduated <<endl;
+        
+            cur = cur -> next;
+        }
+    }
+}
