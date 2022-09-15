@@ -2020,3 +2020,214 @@ void outputManipulation() {
         }
     }
 }
+
+void generateParticularReport(student *stud, fstream &newFile) {
+    newFile << "\n\t" << "ID  \t\t: " << stud -> id << endl;
+    newFile << "\t" << "Name\t\t: " << stud -> name << endl;
+
+    if (stud -> completedCredits == -1.0) {
+        newFile << "\t" << "Credits\t\t: " << "Not Given" << endl;
+    } else {
+        newFile << "\t" << "Credits\t\t: " << stud -> completedCredits << endl;
+    }
+
+    if (stud -> cgpa == -1.0) {
+        newFile << "\t" << "CGPA\t\t: " << "Not Given" << endl;
+    } else {
+        newFile << "\t" << "CGPA\t\t: " << stud -> cgpa << endl;
+    }
+    
+    newFile << "\t" << "DoB\t\t: " << stud -> dob << endl;
+    newFile << "\t" << "Email\t\t: " << stud -> email << endl;
+    newFile << "\t" << "Contact\t\t: " << stud -> contact << endl;
+    newFile << "\t" << "Address\t\t: " << stud -> address << endl;
+    newFile << "\t" << "Blood Group\t: " << stud -> bloodGroup << endl;
+    newFile << "\t" << "Department\t: " << stud -> department << endl;
+    
+    if (stud -> semester == -1) {
+        newFile << "\t" << "Semester\t: " << "Not Given" << endl; 
+    } else {
+        newFile << "\t" << "Semester\t: " << stud -> semester << endl;
+    }
+    
+    if (stud -> isPaymentDone == 0) {
+        newFile << "\t" << "Paid?\t\t: " << "NO" << endl;
+    } else if (stud -> isPaymentDone == 1) {
+        newFile << "\t" << "Paid?\t\t: " << "YES" << endl;
+    } else if (stud -> isPaymentDone == -1) {
+        newFile << "\t" << "Paid?\t\t: " << "Not Given" << endl;
+    } 
+
+    if (stud -> isScholarshipCandidate == 0) {
+        newFile << "\t" << "Scholarship?\t: " << "NO" << endl;
+    } else if (stud -> isScholarshipCandidate == 1) {
+        newFile << "\t" << "Scholarship?\t: " << "YES" << endl;
+    } else if (stud -> isScholarshipCandidate == -1) {
+        newFile << "\t" << "Scholarship?\t: " << "Not Given"<< endl;
+    }
+
+    if (stud -> isGraduated == 0) {
+        newFile << "\t" << "Graduated?\t: " << "NO" << endl;
+    } else if (stud -> isGraduated == 1) {
+        newFile << "\t" << "Graduated?\t: " << "YES" << endl;
+    } else if (stud -> isGraduated == -1) {
+        newFile << "\t" << "Graduated?\t: " << "Not Given" << endl;
+    }
+}
+
+void reportOnSpecificID(int id) {
+    student *cur = head;
+    while (cur != NULL) {
+        if (cur -> id == id) {
+            fstream newFile;
+            newFile.open("ReportOn" + to_string(cur -> id) + ".txt", ios::out);
+            if (newFile.is_open()) {
+                newFile << "\t\tReport on Specific ID " << endl << endl;
+                generateParticularReport(cur, newFile);
+            }
+            return;
+        } cur = cur -> next;
+    }
+}
+
+void reportOnAllStudents() {
+    fstream newFile;
+    newFile.open("ReportOnAllStudents.txt", ios::out);
+    if (newFile.is_open()) {
+        newFile << "\t\tReport on All Students" << endl << endl;
+        student *cur = head;
+        if(cur == NULL) {
+            newFile << "\tNo Available Information Found!" << endl;
+        }
+        int cnt = 0;
+        while (cur != NULL) {
+            newFile << "  Previewing Student: " << ++cnt << endl;
+            generateParticularReport(cur, newFile);
+            newFile << endl << endl;
+            cur = cur -> next;
+        }
+    }
+}
+
+void reportOnProbatedStudents() {
+    fstream newFile;
+    newFile.open("ReportOnProbatedStudents.txt", ios::out);
+    if (newFile.is_open()) {
+        newFile << "\t\tReport on Probated Students\t" << endl << endl;
+        student *cur = head;
+        if(cur == NULL) {
+            newFile << "\tNo Avalable Information Found!" << endl;
+        }
+        int cnt = 0;
+        while (cur != NULL) {
+            if (cur -> cgpa < 2.0) {
+                newFile << "  Previewing Student: " << ++cnt << endl;
+                generateParticularReport(cur, newFile);
+                newFile << endl << endl;
+            }
+            cur = cur -> next;
+        }
+    }
+}
+
+void reportBySemester(int sem) {
+    fstream newFile;
+    newFile.open("ReportBySemester.txt", ios::out);
+    if (newFile.is_open()) {
+        newFile << "\t\tReport by Semester " << sem << " Students\t" << endl << endl;
+        student *cur = head;
+        if(cur == NULL) {
+            newFile << "\tNo Avalable Information Found!" << endl;
+        }
+        int cnt = 0; 
+        while (cur != NULL) {
+            if (cur -> semester == sem) {
+                newFile << "  Previewing Student: " << ++cnt << endl;
+                generateParticularReport(cur, newFile);
+                newFile << endl << endl;
+            }
+            cur = cur -> next;
+        }
+    }
+}
+
+void reportByCGPA(double cgpa, string dir) {
+    fstream newFile;
+    newFile.open("ReportByCGPA.txt", ios::out);
+    int cnt = 0;
+    if (newFile.is_open()) {
+        if (dir == "=") {
+            newFile << "\t\tReport of Students having CGPA Equals to " << cgpa << endl << endl;
+            student *cur = head;
+            if(cur == NULL) {
+                newFile << "\tNo Avalable Information Found!" << endl;
+            }
+            while (cur != NULL) {
+                if (cur -> cgpa == cgpa) {
+                    newFile << "  Previewing Student: " << ++cnt << endl;
+                    generateParticularReport(cur, newFile);
+                    newFile << endl << endl;
+                }
+                cur = cur -> next;
+            }
+        } else if (dir == "<") {
+            newFile << "\t\tReport of Students having CGPA Less than " << cgpa << endl << endl;
+            student *cur = head;
+            if(cur == NULL) {
+                newFile << "\tNo Avalable Information Found!" << endl;
+            }
+            while (cur != NULL) {
+                if (cur -> cgpa < cgpa) {
+                    newFile << "  Previewing Student: " << ++cnt << endl;
+                    generateParticularReport(cur, newFile);
+                    newFile << endl << endl;
+                }
+                cur = cur -> next;
+            }
+        } else if (dir == ">") {
+            newFile << "\t\tReport of Students having CGPA Greater than " << cgpa << endl << endl;
+            student *cur = head;
+            if(cur == NULL) {
+                newFile << "\tNo Avalable Information Found!" << endl;
+            }
+            while (cur != NULL) {
+                if (cur -> cgpa > cgpa) {
+                    newFile << "  Previewing Student: " << ++cnt << endl;
+                    generateParticularReport(cur, newFile);
+                    newFile << endl << endl;
+                }
+                cur = cur -> next;
+            }
+        } else if (dir == "<=") {
+            newFile << "\t\tReport of Students having CGPA Equal or Less than " << cgpa << endl << endl;
+            student *cur = head;
+            if(cur == NULL) {
+                newFile << "\tNo Avalable Information Found!" << endl;
+            }
+            while (cur != NULL) {
+                if (cur -> cgpa <= cgpa) {
+                    newFile << "  Previewing Student: " << ++cnt << endl;
+                    generateParticularReport(cur, newFile);
+                    newFile << endl << endl;
+                }
+                cur = cur -> next;
+            }
+        } else if (dir == ">=") {
+            newFile << "\t\tReport of Students having CGPA Equal or Greater than " << cgpa << endl << endl;
+            student *cur = head;
+            if(cur == NULL) {
+                newFile << "\tNo Avalable Information Found!" << endl;
+            }
+            while (cur != NULL) {
+                if (cur -> cgpa >= cgpa) {
+                    newFile << "  Previewing Student: " << ++cnt << endl;
+                    generateParticularReport(cur, newFile);
+                    newFile << endl << endl;
+                }
+                cur = cur -> next;
+            }
+        } else {
+            newFile << "Invalid Direction to Predict!" << endl;
+        }
+    }
+}
