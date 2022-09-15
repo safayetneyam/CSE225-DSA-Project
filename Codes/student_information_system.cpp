@@ -1712,3 +1712,210 @@ void sortStudentInfo() {
     }
     sortStudentInfo();
 }
+
+void generateReport() {
+    system("CLS");
+    cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+    cout << "\t\t\t    Report Manipulation\n\n";
+
+    cout << "\t1. Report on All Students\n";
+    cout << "\t2. Report on Specific ID\n";
+    cout << "\t3. Report by Semester\n";
+    cout << "\t4. Report by CGPA\n";
+    cout << "\t5. Report on Probated Students\n";
+    cout << "\t<. Return to Main Menu\n";
+    cout << "\n\t0. Exit\n";
+
+    cout << "\nEnter your Instruction: ";
+    string input; cin >> input;
+    if (input == "1") {
+        reportOnAllStudents();
+        system("CLS");
+        cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+        cout << "\t\t\t    Report Manipulation\n\n";
+        cout << "\n\n\t\t\tReport on All Students has been Created!\n" << endl;
+        cout << "\n\n\nPress any key to continue...";
+        getch();
+    } else if (input == "2") {
+        int id;
+        cout << "\n\nEnter ID: ";
+        cin >> id;
+        system("CLS");
+        cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+        cout << "\t\t\t    Report Manipulation\n\n";
+        if (foundId(id)) {
+            reportOnSpecificID(id);
+            cout << "\n\n\t\t\tReport on ID " << id << " has been Created!\n" << endl;
+        } else {
+            cout << "\n\n\t\t\t  ID " << id << " Not Found!\n" << endl;
+        }
+        cout << "\n\n\nPress any key to continue...";
+        getch();
+    } else if (input == "3") {
+        int semester;
+        cout << "\n\nEnter Semester (in digit): ";
+        cin >> semester;
+        reportBySemester(semester);
+        system("CLS");
+        cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+        cout << "\t\t\t    Report Manipulation\n\n";
+        cout << "\n\n\t\t\tReport by Semester " << semester << " has been Created!\n" << endl;
+        cout << "\n\n\nPress any key to continue...";
+        getch();
+    } else if (input == "4") {
+        double cgpa;
+        string dir;
+        cout << "\n\nEnter CGPA: ";
+        cin >> cgpa;
+        cout << "\n\nEnter Direction ( = < > <= >= ): ";
+        cin >> dir;
+        reportByCGPA(cgpa, dir);
+        system("CLS");
+        cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+        cout << "\t\t\t    Report Manipulation\n\n";
+        cout << "\n\n\t\t\tReport by CGPA " << cgpa << ", ( " << dir << " ) has been Created!\n" << endl;
+        cout << "\n\n\nPress any key to continue...";
+        getch();
+    } else if (input == "5") {
+        reportOnProbatedStudents();
+        system("CLS");
+        cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+        cout << "\t\t\t    Report Manipulation\n\n";
+        cout << "\n\n\t\t\tReport on Probated Students has been Created!\n" << endl;
+        cout << "\n\n\nPress any key to continue...";
+        getch();
+    } else if (input == "<") {
+        return;
+    } else if (input == "0") {
+        outputManipulation();
+        exit(0);
+    } else {
+        cout << "\n\t\t\tInvalid Option!!" << "\n";
+        cout << "\t\t       Please try again..." << "\n";
+        cout << "\n";
+        cout << "Press any key to continue...";
+        getch();
+        generateReport();
+    }
+    generateReport();
+}
+
+void printSpecificID(int id) {
+    student *updCur = head;
+    while (updCur != NULL) {
+        if (updCur -> id == id) break;
+        updCur = updCur -> next;
+    }
+    if (updCur == NULL) return;
+
+    cout << "\n  Previewing Student ID: " << updCur -> id << endl;
+    cout << "\n\t" << "Info\n" << endl;
+    cout << "\t" << "Name\t\t\t: " << updCur -> name << endl;
+
+    if (updCur -> completedCredits == -1.0) {
+        cout << "\t" << "Credits\t\t\t: " << "Not Given" << endl; 
+    } else {
+        cout << "\t" << "Credits\t\t\t: " << updCur -> completedCredits << endl;
+    }
+
+    if (updCur -> cgpa == -1.0) {
+        cout << "\t" << "CGPA\t\t\t: " << "Not Given" << endl; 
+    } else {
+        cout << "\t" << "CGPA\t\t\t: " << updCur -> cgpa << endl;
+    }
+
+    cout << "\t" << "Date of Birth\t\t: " << updCur -> dob << endl;
+    cout << "\t" << "Email\t\t\t: " << updCur -> email << endl;
+    cout << "\t" << "Contact\t\t\t: " << updCur -> contact << endl;
+    cout << "\t" << "Address\t\t\t: " << updCur -> address << endl;
+    cout << "\t" << "Blood Group\t\t: " << updCur -> bloodGroup << endl;
+    cout << "\t" << "Department\t\t: " << updCur -> department << endl;
+
+    if (updCur -> semester == -1) {
+       cout << "\t" << "Semester\t\t: " << "Not Given" << endl; 
+    } else {
+        cout << "\t" << "Semester\t\t: " << updCur -> semester << endl;
+    }
+
+    if (updCur -> isPaymentDone == 0) {
+        cout << "\t" << "Paid?\t\t\t" << ": No" << endl;
+    } else if (updCur -> isPaymentDone == 1) {
+        cout << "\t" << "Paid?\t\t\t" << ": Yes" << endl;
+    } else if (updCur -> isPaymentDone == -1) {
+        cout << "\t" << "Paid?\t\t\t" << ": Not Given" << endl;
+    } 
+
+    if (updCur -> isScholarshipCandidate == 0) {
+        cout << "\t" << "Scholarship Candidate?\t" << ": No" << endl;
+    } else if (updCur -> isScholarshipCandidate == 1) {
+        cout << "\t" << "Scholarship Candidate?\t" << ": Yes" << endl;
+    } else if (updCur -> isScholarshipCandidate == -1) {
+        cout << "\t" << "Scholarship Candidate?\t" << ": Not Given" << endl;
+    }
+
+    if (updCur -> isGraduated == 0) {
+        cout << "\t" << "Graduated?\t\t" << ": No" << endl;
+    } else if (updCur -> isGraduated == 1) {
+        cout << "\t" << "Graduated?\t\t" << ": Yes" << endl;
+    } else if (updCur -> isGraduated == -1) {
+        cout << "\t" << "Graduated?\t\t" << ": Not Given" << endl;
+    }
+    cout << endl << endl; 
+
+}
+
+void printSpecificID(student *updCur) {
+    cout << "\n  Previewing Student ID: " << updCur -> id << endl;
+    cout << "\n\t" << "Info\n" << endl;
+    cout << "\t" << "Name\t\t\t: " << updCur -> name << endl;
+
+    if (updCur -> completedCredits == -1.0) {
+        cout << "\t" << "Credits\t\t\t: " << "Not Given" << endl; 
+    } else {
+        cout << "\t" << "Credits\t\t\t: " << updCur -> completedCredits << endl;
+    }
+
+    if (updCur -> cgpa == -1.0) {
+        cout << "\t" << "CGPA\t\t\t: " << "Not Given" << endl; 
+    } else {
+        cout << "\t" << "CGPA\t\t\t: " << updCur -> cgpa << endl;
+    }
+
+    cout << "\t" << "Date of Birth\t\t: " << updCur -> dob << endl;
+    cout << "\t" << "Email\t\t\t: " << updCur -> email << endl;
+    cout << "\t" << "Contact\t\t\t: " << updCur -> contact << endl;
+    cout << "\t" << "Address\t\t\t: " << updCur -> address << endl;
+    cout << "\t" << "Blood Group\t\t: " << updCur -> bloodGroup << endl;
+    cout << "\t" << "Department\t\t: " << updCur -> department << endl;
+
+    if (updCur -> semester == -1) {
+       cout << "\t" << "Semester\t\t: " << "Not Given" << endl; 
+    } else {
+        cout << "\t" << "Semester\t\t: " << updCur -> semester << endl;
+    }
+
+    if (updCur -> isPaymentDone == 0) {
+        cout << "\t" << "Paid?\t\t\t" << ": No" << endl;
+    } else if (updCur -> isPaymentDone == 1) {
+        cout << "\t" << "Paid?\t\t\t" << ": Yes" << endl;
+    } else if (updCur -> isPaymentDone == -1) {
+        cout << "\t" << "Paid?\t\t\t" << ": Not Given" << endl;
+    } 
+
+    if (updCur -> isScholarshipCandidate == 0) {
+        cout << "\t" << "Scholarship Candidate?\t" << ": No" << endl;
+    } else if (updCur -> isScholarshipCandidate == 1) {
+        cout << "\t" << "Scholarship Candidate?\t" << ": Yes" << endl;
+    } else if (updCur -> isScholarshipCandidate == -1) {
+        cout << "\t" << "Scholarship Candidate?\t" << ": Not Given" << endl;
+    }
+
+    if (updCur -> isGraduated == 0) {
+        cout << "\t" << "Graduated?\t\t" << ": No" << endl;
+    } else if (updCur -> isGraduated == 1) {
+        cout << "\t" << "Graduated?\t\t" << ": Yes" << endl;
+    } else if (updCur -> isGraduated == -1) {
+        cout << "\t" << "Graduated?\t\t" << ": Not Given" << endl;
+    }
+    cout << endl << endl;
+}
