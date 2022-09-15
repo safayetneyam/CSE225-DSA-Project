@@ -934,3 +934,265 @@ void searchByProbationStudents() {
         cout << "\n\nNo Probated Student!" << endl;
     }
 }
+
+void sortByID() {
+    student *sorted = NULL;
+    student *cur = head;
+
+    while (cur != NULL) {
+        student *next = cur -> next;
+        cur -> prev = cur -> next = NULL;
+
+        student* temp;
+        if (sorted == NULL) {
+            sorted = cur;
+        }
+        else if (sorted -> id >= cur -> id) {
+            cur -> next = sorted;
+            cur -> next -> prev = cur;
+            sorted = cur;
+        }
+        else {
+            temp = sorted;
+            while (temp -> next != NULL && temp -> next -> id < cur -> id) {
+                temp = temp -> next;
+            }
+
+            cur -> next = temp -> next;
+            if (temp -> next != NULL) {
+                cur -> next -> prev = cur;
+            }
+            temp -> next = cur;
+            cur -> prev = temp;
+        }
+        cur = next;
+    }
+
+    head = sorted;
+    student *studentTrv = head;
+    while (studentTrv -> next != NULL) {
+        studentTrv = studentTrv -> next;
+    }
+    tail -> prev = studentTrv -> prev;
+    tail = studentTrv;
+    tail -> next = NULL;
+}
+
+string makingLower(string str) {
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    return str;
+}
+
+void sortByName(){
+    student *sorted = NULL;
+    student *cur = head;
+    while (cur != NULL) {
+        student *next = cur -> next;
+        cur -> prev = cur -> next = NULL;
+
+        student* temp;
+        if (sorted == NULL) {
+            sorted = cur;
+        }
+        else if (makingLower(sorted -> name) >= makingLower(cur -> name)) {
+            cur -> next = sorted;
+            cur -> next -> prev = cur;
+            sorted = cur;
+        }
+        else {
+            temp = sorted;
+            while (temp -> next != NULL && makingLower(temp -> next -> name) < makingLower(cur -> name)) {
+                temp = temp -> next;
+            }
+
+            cur -> next = temp -> next;
+            if (temp -> next != NULL) {
+                cur -> next -> prev = cur;
+            }
+            temp -> next = cur;
+            cur -> prev = temp;
+        }
+        cur = next;
+    }
+
+    head = sorted;
+    student *studentTrv = head;
+    while (studentTrv -> next != NULL) {
+        studentTrv = studentTrv -> next;
+    }
+    tail -> prev = studentTrv -> prev;
+    tail = studentTrv;
+    tail -> next = NULL;
+}
+
+void sortByCGPA(){
+    student *sorted = NULL;
+    student *cur = head;
+
+    while (cur != NULL) {
+        student *next = cur -> next;
+        cur -> prev = cur -> next = NULL;
+
+        student* temp;
+        if (sorted == NULL) {
+            sorted = cur;
+        }
+        else if (sorted -> cgpa >= cur -> cgpa) {
+            cur -> next = sorted;
+            cur -> next -> prev = cur;
+            sorted = cur;
+        }
+        else {
+            temp = sorted;
+            while (temp -> next != NULL && temp -> next -> cgpa < cur -> cgpa) {
+                temp = temp -> next;
+            }
+
+            cur -> next = temp -> next;
+            if (temp -> next != NULL) {
+                cur -> next -> prev = cur;
+            }
+            temp -> next = cur;
+            cur -> prev = temp;
+        }
+        cur = next;
+    }
+
+    head = sorted;
+    student *studentTrv = head;
+    while (studentTrv -> next != NULL) {
+        studentTrv = studentTrv -> next;
+    }
+    tail -> prev = studentTrv -> prev;
+    tail = studentTrv;
+    tail -> next = NULL;
+}
+
+void sortBySemester() {
+    student *sorted = NULL;
+    student *cur = head;
+
+    while (cur != NULL) {
+        student *next = cur -> next;
+        cur -> prev = cur -> next = NULL;
+
+        student* temp;
+        if (sorted == NULL) {
+            sorted = cur;
+        }
+        else if (sorted -> semester >= cur -> semester) {
+            cur -> next = sorted;
+            cur -> next -> prev = cur;
+            sorted = cur;
+        }
+        else {
+            temp = sorted;
+            while (temp -> next != NULL && temp -> next -> semester < cur -> semester) {
+                temp = temp -> next;
+            }
+
+            cur -> next = temp -> next;
+            if (temp -> next != NULL) {
+                cur -> next -> prev = cur;
+            }
+            temp -> next = cur;
+            cur -> prev = temp;
+        }
+        cur = next;
+    }
+
+    head = sorted;
+    student *studentTrv = head;
+    while (studentTrv -> next != NULL) {
+        studentTrv = studentTrv -> next;
+    }
+    tail -> prev = studentTrv -> prev;
+    tail = studentTrv;
+    tail -> next = NULL;
+}
+
+void sortByDepartment() {
+    student *sorted = NULL;
+    student *cur = head;
+
+    while (cur != NULL) {
+        student *next = cur -> next;
+        cur -> prev = cur -> next = NULL;
+
+        student* temp;
+        if (sorted == NULL) {
+            sorted = cur;
+        }
+        else if (makingLower(sorted -> department) >= makingLower(cur -> department)) {
+            cur -> next = sorted;
+            cur -> next -> prev = cur;
+            sorted = cur;
+        }
+        else {
+            temp = sorted;
+            while (temp -> next != NULL && makingLower(temp -> next -> department) < makingLower(cur -> department)) {
+                temp = temp -> next;
+            }
+
+            cur -> next = temp -> next;
+            if (temp -> next != NULL) {
+                cur -> next -> prev = cur;
+            }
+            temp -> next = cur;
+            cur -> prev = temp;
+        }
+        cur = next;
+    }
+
+    head = sorted;
+    student *studentTrv = head;
+    while (studentTrv -> next != NULL) {
+        studentTrv = studentTrv -> next;
+    }
+    tail -> prev = studentTrv -> prev;
+    tail = studentTrv;
+    tail -> next = NULL;
+}
+
+void sortByCompletedCredits() {
+    student *sorted = NULL;
+    student *cur = head;
+
+    while (cur != NULL) {
+        student *next = cur -> next;
+        cur -> prev = cur -> next = NULL;
+
+        student* temp;
+        if (sorted == NULL) {
+            sorted = cur;
+        }
+        else if (sorted -> completedCredits >= cur -> completedCredits) {
+            cur -> next = sorted;
+            cur -> next -> prev = cur;
+            sorted = cur;
+        }
+        else {
+            temp = sorted;
+            while (temp -> next != NULL && temp -> next -> completedCredits < cur -> completedCredits) {
+                temp = temp -> next;
+            }
+
+            cur -> next = temp -> next;
+            if (temp -> next != NULL) {
+                cur -> next -> prev = cur;
+            }
+            temp -> next = cur;
+            cur -> prev = temp;
+        }
+        cur = next;
+    }
+
+    head = sorted;
+    student *studentTrv = head;
+    while (studentTrv -> next != NULL) {
+        studentTrv = studentTrv -> next;
+    }
+    tail -> prev = studentTrv -> prev;
+    tail = studentTrv;
+    tail -> next = NULL;
+}
