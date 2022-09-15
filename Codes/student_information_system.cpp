@@ -1196,3 +1196,519 @@ void sortByCompletedCredits() {
     tail = studentTrv;
     tail -> next = NULL;
 }
+
+int menu() {
+    system("CLS");
+    cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+    cout << "\t\t\t\tMain Menu\n\n";
+    cout << "  I N D E X \n\n";
+    cout << "\t1. Show Student List\n";
+    cout << "\t2. Add Student Information\n";
+    cout << "\t3. Update Student Information\n";
+    cout << "\t4. Delete Student Information\n";
+    cout << "\t5. Search Student Information\n";
+    cout << "\t6. Sort Student List\n";
+    cout << "\t7. Generate Report\n\n";
+    cout << "\t0. Exit\n";
+
+    cout << "\n   Enter Your Instruction: ";
+    int input; cin >> input;
+    return input;
+}
+
+void showStudentInfo() {
+    system("CLS");
+    cout<<"\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+    cout<<"\t\t\t   All Information\n\n";
+
+    student *temp = head;
+    int cnt = 0;
+    string output;
+    while (temp != NULL) {
+        cout << "  Previewing Student " << ++cnt << ":   ID - " << temp -> id << endl;
+        cout << "\n\t" << "Info\n" << endl;
+        cout << "\t" << "Name\t\t\t: " << temp -> name << endl;
+
+        if (temp -> completedCredits == -1.0) {
+            cout << "\t" << "Credits\t\t\t: " << "Not Given" << endl; 
+        } else {
+            cout << "\t" << "Credits\t\t\t: " << temp -> completedCredits << endl;
+        }
+
+        if (temp -> cgpa == -1.0) {
+            cout << "\t" << "CGPA\t\t\t: " << "Not Given" << endl; 
+        } else {
+            cout << "\t" << "CGPA\t\t\t: " << temp -> cgpa << endl;
+        }
+
+        cout << "\t" << "Date of Birth\t\t: " << temp -> dob << endl;
+        cout << "\t" << "Email\t\t\t: " << temp -> email << endl;
+        cout << "\t" << "Contact\t\t\t: " << temp -> contact << endl;
+        cout << "\t" << "Address\t\t\t: " << temp -> address << endl;
+        cout << "\t" << "Blood Group\t\t: " << temp -> bloodGroup << endl;
+        cout << "\t" << "Department\t\t: " << temp -> department << endl;
+
+        if (temp -> semester == -1) {
+            cout << "\t" << "Semester\t\t: " << "Not Given" << endl; 
+        } else {
+            cout << "\t" << "Semester\t\t: " << temp -> semester << endl;
+        }
+
+        if (temp -> isPaymentDone == 0) {
+            cout << "\t" << "Paid?\t\t\t" << ": No" << endl;
+        } else if (temp -> isPaymentDone == 1) {
+            cout << "\t" << "Paid?\t\t\t" << ": Yes" << endl;
+        } else if (temp -> isPaymentDone == -1) {
+            cout << "\t" << "Paid?\t\t\t" << ": Not Given" << endl;
+        } 
+
+        if (temp -> isScholarshipCandidate == 0) {
+            cout << "\t" << "Scholarship Candidate?\t" << ": No" << endl;
+        } else if (temp -> isScholarshipCandidate == 1) {
+            cout << "\t" << "Scholarship Candidate?\t" << ": Yes" << endl;
+        } else if (temp -> isScholarshipCandidate == -1) {
+            cout << "\t" << "Scholarship Candidate?\t" << ": Not Given" << endl;
+        }
+
+        if (temp -> isGraduated == 0) {
+            cout << "\t" << "Graduated?\t\t" << ": No" << endl;
+        } else if (temp -> isGraduated == 1) {
+            cout << "\t" << "Graduated?\t\t" << ": Yes" << endl;
+        } else if (temp -> isGraduated == -1) {
+            cout << "\t" << "Graduated?\t\t" << ": Not Given" << endl;
+        }
+        cout << endl << endl;
+        temp = temp -> next;
+    }
+
+    if (cnt == 0) {
+        cout << "\n\n\n\tEmpty Student Information!\n\n";
+    } else {
+        cout << "\n  There're A Total Number of "<< cnt << " Retrieved Data from the Designated File." << endl;
+    }
+
+}
+
+void addStudentInfo() {
+    system("CLS");
+    cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+    cout << "\t\t\tInsert Information\n\n";
+
+    cout << "\t1. Insert All Information\n";
+    cout << "\t2. Insert By ID\n";
+    cout << "\t3. Insert By ID & Name\n";
+    cout << "\t<. Return to Main Menu\n";
+    cout << "\n\t0. Exit\n";
+
+    cout << "\nEnter your Instruction: ";
+    string input; cin >> input;
+    if (input == "1") {
+        student *newStudent = NULL;
+        insertStudent(newStudent);
+    } else if (input == "2") {
+        int id;
+        cout << "\nEnter ID: ";
+        cin >> id;
+        if (foundId(id)) {
+            cout << "\n\n\tID already Inserted" << endl << endl;
+            cout << "Press any key to continue...";
+            getch();
+        } else {
+            insertStudent(id);
+        }
+    } else if (input == "3") {
+        int id;
+        string name;
+        cout<<"\nEnter ID: ";
+        cin>>id;
+        cout<<"Enter Name: ";
+        getline(cin >> ws, name);
+        if (foundId(id)) {
+            cout << "\n\n\tID already Inserted" << endl << endl;
+            cout << "Press any key to continue...";
+            getch();
+        } else {
+            insertStudent(id, name);
+        }
+        
+    } else if (input == "<") {
+        return;
+    } else if (input == "0") {
+        outputManipulation();
+        exit(0);
+    } else {
+        cout << "\n\t\t\tInvalid Option!!" << "\n";
+        cout << "\t\t       Please try again..." << "\n";
+        cout << "\n";
+        cout << "Press any key to continue...";
+        getch();
+        addStudentInfo();
+    }
+    addStudentInfo();
+}
+
+void updateStudentInfo() {
+    system("CLS");
+    cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+    cout << "\t\t\t    Update Information\n\n";
+
+    cout << "\n\t1. Update By ID"<<endl;
+    cout << "\t2. Update Incomplete Student List"<<endl;
+    cout << "\t<. Return to Main Menu"<<endl;
+
+    cout << "\n\t0. Exit"<<endl;
+
+    cout << "\n\nEnter your Instruction: ";
+    string input; cin >> input;
+
+    if (input == "1") {
+        updateInfoByID();
+    } else if (input == "2") {
+        updatePartialData();
+    } else if (input == "<") {
+        return;
+    } else if (input == "0") {
+        outputManipulation();
+        exit(0);
+    } else {
+        cout << "\n\t\t\tInvalid Option!!" << "\n";
+        cout << "\t\t       Please try again..." << "\n";
+        cout << "\n";
+        cout << "Press any key to continue...";
+        getch();
+        updateStudentInfo();
+    }
+}
+
+void deleteStudentInfo() {
+    system("CLS");
+    cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+    cout << "\t\t\t    Delete Information\n\n";
+
+    cout << "\t1. Delete All Information\n";
+    cout << "\t2. Delete By ID\n";
+    cout << "\t3. Delete By Name\n";
+    cout << "\t4. Delete By CGPA\n";
+    cout << "\t5. Delete By Graduation Status\n";
+    cout << "\t6. Delete By Probation Status\n";
+    cout << "\t<. Return to Main Menu\n";
+
+    cout << "\n\t0. Exit\n";
+
+    cout << "\nEnter your Instruction: ";
+    string input; cin >> input;
+    if (input == "1") {
+        deleteAllInfo();
+        system("CLS");
+        cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+        cout << "\t\t\t    Delete Information\n\n";
+        cout << "\n\n\t\t\tAll Information has been deleted!\n" << endl;
+        cout << "\n\n\nPress any key to continue...";
+        getch();
+    } else if (input == "2") {
+        int id;
+        cout << "\nEnter ID: ";
+        cin >> id;
+        system("CLS");
+        cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+        cout << "\t\t\t    Delete Information\n\n";
+        if (foundId(id)) {
+            deleteByID(id);
+            cout << "\n\n\t\t\tAll Information of ID: " << id << " has been Removed!" << endl;
+            cout << "\n\n\nPress any key to continue...";
+            getch();
+        } else {
+            cout << "\t\t" << id << " Not Found!" << endl;
+            cout << "\n\nPress any key to continue.....";
+            getch();
+        }
+        getch();
+    } else if (input == "3") {
+        string name;
+        cout << "\nEnter Name: ";
+        getline(cin >> ws, name);
+        system("CLS");
+        cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+        cout << "\t\t\t    Delete Information\n\n";
+        if (foundName(name)) {
+            deleteByName(name);
+            cout << "\n\n\t\t\tAll Information of Name: " << name << " has been Removed!" << endl;
+            cout << "\n\n\nPress any key to continue...";
+        } else {
+            cout << "\t\t" << name << " Not Found!" << endl;
+            cout << "\n\nPress any key to continue.....";
+        }
+        getch();
+    } else if (input == "4") {
+        double cgpa;
+        cout << "\nEnter CGPA: ";
+        cin >> cgpa;
+        cout << "Enter Direction (=, <, >, <=, >=): ";
+        string dir; cin >> dir;
+        deleteByCGPA(cgpa, dir);
+        system("CLS");
+        cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+        cout << "\t\t\t    Delete Information\n\n";
+        cout << "\n\n\t\tAll Information of CGPA: " << cgpa << " with direction: " << dir << " has been Removed!" << endl;
+        cout << "\n\n\nPress any key to continue...";
+        getch();
+    } else if (input == "5") {
+        deleteByGradStatus();
+        system("CLS");
+        cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+        cout << "\t\t\t    Delete Information\n\n";
+        cout << "\n\n\t\tAll Information of Graduated Students has been Removed!" << endl;
+        cout << "\n\n\nPress any key to continue...";
+        getch();
+    } else if (input == "6") {
+        deleteProbatedStudents();
+        system("CLS");
+        cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+        cout << "\t\t\t    Delete Information\n\n";
+        cout << "\n\n\t\tAll Information of Probated Students has been Removed!" << endl;
+        cout << "\n\n\nPress any key to continue...";
+        getch();
+    } else if (input == "<") {
+        return;
+    } else if(input == "0") {
+        outputManipulation();
+        exit(0);
+    } else {
+        cout << "\n\t\t\tInvalid Option!!" << "\n";
+        cout << "\t\t       Please try again..." << "\n";
+        cout << "\n";
+        cout << "Press any key to continue...";
+        getch();
+        deleteStudentInfo();
+    } deleteStudentInfo();
+}
+
+void searchStudentInfo() {
+    system("CLS");
+    cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+    cout << "\t\t\tSearch Information\n\n";
+
+    cout << "\t1. Search By ID\n";
+    cout << "\t2. Search By Name\n";
+    cout << "\t3. Search By Contact\n";
+    cout << "\t4. Search By CGPA\n";
+    cout << "\t5. Search By Blood Group\n";
+    cout << "\t6. Search By Semester\n";
+    cout << "\t7. Search By Department\n";
+    cout << "\t8. Search By Completed Credits\n";
+    cout << "\t9. Search By Unpaid Students\n";
+    cout << "\t10. Search By Graduate Students\n";
+    cout << "\t11. Search By Probation Students\n";
+    cout << "\t<. Return to Main Menu\n";
+
+    cout << "\n\t0. Exit\n";
+
+    cout << "\nEnter your Instruction: ";
+    string input; cin>>input;
+
+    system("CLS");
+    cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+    cout << "\t\t\tSearch Information\n\n";
+
+    if (input == "1") {
+        int id;
+        cout << "\nEnter ID to Search: ";
+        cin >> id;
+        searchById(id);
+    } else if (input == "2") {
+        string name;
+        cout << "\nEnter Name to Search: ";
+        getline(cin >> ws, name);
+        searchByName(name);
+    } else if (input == "3") {
+        string contact;
+        cout << "\nEnter Contact to Search: ";
+        getline(cin >> ws, contact);
+        searchByContact(contact);
+    } else if (input == "4") {
+        double cgpa;
+        string dir;
+        cout << "\nEnter CGPA to Search: ";
+        cin >> cgpa;
+        cout << "\nChoose an Option: \n";
+        cout << "\t<. Less than the CGPA\n";
+        cout << "\t>. Greater than the CGPA\n";
+        cout << "\t=. Equal to the CGPA\n";
+        cout << "\t<=. Less than or equal to the CGPA\n";
+        cout << "\t>=. Greater than or equal to the CGPA\n";
+
+        cout << "\nEnter your Instruction: ";
+        getline(cin >> ws, dir);
+        searchByCGPA(cgpa, dir);
+    } else if (input == "5") {
+        string bloodGroup;
+        cout << "\nEnter Blood Group to Search: ";
+        getline(cin >> ws, bloodGroup);
+        searchByBloodGroup(bloodGroup);
+    } else if (input == "6") {
+        int semester;
+        cout << "\nEnter Semester to Search: ";
+        cin >> semester;
+        searchBySemester(semester);
+    } else if (input == "7") {
+        string department;
+        cout << "\nEnter Department to Search: ";
+        getline(cin >> ws, department);
+        searchByDepartment(department);
+    } else if (input == "8") {
+        int completedCredits;
+        string dir;
+        cout << "\nEnter Completed Credits to Search: ";
+        cin >> completedCredits;
+        cout << "\nChoose an Option: \n";
+        cout << "\t<. Less than the Completed Credits\n";
+        cout << "\t>. Greater than the Completed Credits\n";
+        cout << "\t=. Equal to the Completed Credits\n";
+        cout << "\t<=. Less than or equal to the Completed Credits\n";
+        cout << "\t>=. Greater than or equal to the Completed Credits\n";
+
+        cout << "\nEnter your Instruction: ";
+        getline(cin >> ws, dir);
+        searchByCompletedCredits(completedCredits, dir);
+    } else if (input == "9") {
+        searchByUnpaidStudents();
+    } else if (input == "10") {
+        searchByGraduateStudents();
+    } else if (input == "11") {
+        searchByProbationStudents();
+    } else if (input == "<") {
+        return;
+    } else if (input == "0") {
+        outputManipulation();
+        exit(0);
+    } else {
+        cout << "\n\t\t\tInvalid Option!!" << "\n";
+        cout << "\t\t       Please try again..." << "\n";
+        cout << "\n";
+        cout << "Press any key to continue...";
+        getch();
+        searchStudentInfo();
+    }
+    cout << "\n\n\nPress any key to continue...";
+    getch();
+    searchStudentInfo();
+}
+
+void sortStudentInfo() {
+    system("CLS");
+
+    string line;
+    cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+    cout << "\t\t\tSort Information\n\n";
+
+    cout << "\t1. Sort By ID\n";
+    cout << "\t2. Sort By Name\n";
+    cout << "\t3. Sort By CGPA\n";
+    cout << "\t4. Sort By Semester\n";
+    cout << "\t5. Sort By Department\n";
+    cout << "\t6. Sort By Completed Credits\n";
+    cout << "\t<. Return to Main Menu\n";
+
+    cout << "\n\t0. Exit\n";
+
+    cout << "\nEnter your Instruction: ";
+    string input; cin >> input;
+
+    if (input=="1") {
+        sortByID();
+        system("CLS");
+        cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+        cout << "\t\t\tSort Information\n\n";
+        cout << "\n\n\tInformation is sorted by ID!\n";
+        cout << "\n\nDo you want to the Sorted Student List by ID? (YES / NO): ";
+        getline(cin >> ws, line);
+        transform(line.begin(), line.end(), line.begin(), ::tolower);
+        if (line == "yes") {
+            showStudentInfo();
+            cout << "\n\nPress any key to continue...";
+            getch();
+        }
+    } else if (input == "2") {
+        sortByName();
+        system("CLS");
+        cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+        cout << "\t\t\tSort Information\n\n";
+        cout << "\n\n\tInformation is sorted by Name!\n";
+        cout << "\n\nDo you want to the Sorted Student List by Name? (YES / NO): ";
+        getline(cin >> ws, line);
+        transform(line.begin(), line.end(), line.begin(), ::tolower);
+        if (line == "yes") {
+            showStudentInfo();
+            cout << "\n\nPress any key to continue...";
+            getch();
+        }
+    } else if (input == "3") {
+        sortByCGPA();
+        system("CLS");
+        cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+        cout << "\t\t\tSort Information\n\n";
+        cout << "\n\n\tInformation is sorted by CGPA!\n";
+        cout << "\n\nDo you want to the Sorted Student List by CGPA? (YES / NO): ";
+        getline(cin >> ws, line);
+        transform(line.begin(), line.end(), line.begin(), ::tolower);
+        if (line == "yes"){
+            showStudentInfo();
+            cout << "\n\nPress any key to continue...";
+            getch();
+        }
+    } else if (input == "4") {
+        sortBySemester();
+        system("CLS");
+        cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+        cout << "\t\t\tSort Information\n\n";
+        cout << "\n\n\tInformation is sorted by Semester!\n";
+        cout << "\n\nDo you want to the Sorted Student List by Semester? (YES / NO): ";
+        getline(cin >> ws, line);
+        transform(line.begin(), line.end(), line.begin(), ::tolower);
+        if (line == "yes"){
+            showStudentInfo();
+            cout << "\n\nPress any key to continue...";
+            getch();
+        }
+    } else if (input=="5") {
+        sortByDepartment();
+        system("CLS");
+        cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+        cout << "\t\t\tSort Information\n\n";
+        cout << "\n\n\tInformation is sorted by Department!\n";
+        cout << "\n\nDo you want to the Sorted Student List by Department? (YES / NO): ";
+        getline(cin >> ws, line);
+        transform(line.begin(), line.end(), line.begin(), ::tolower);
+        if(line == "yes"){
+            showStudentInfo();
+            cout << "\n\nPress any key to continue...";
+            getch();
+        }
+    } else if (input=="6") {
+        sortByCompletedCredits();
+        system("CLS");
+        cout << "\t\t\tSTUDENT INFORMATION SYSTEM\n\n";
+        cout << "\t\t\tSort Information\n\n";
+        cout << "\n\n\tInformation is sorted by Completed Credits!\n";
+        cout << "\n\nDo you want to the Sorted Student List by Completed Credits? (YES / NO): ";
+        getline(cin>>ws, line);
+        transform(line.begin(), line.end(), line.begin(), ::tolower);
+        if(line == "yes"){
+            showStudentInfo();
+            cout << "\n\nPress any key to continue...";
+            getch();
+        }
+    } else if (input == "<") {
+        return;
+    } else if (input == "0") {
+        outputManipulation();
+        exit(0);
+    } else {
+        cout << "\n\t\t\tInvalid Option!!" << "\n";
+        cout << "\t\t       Please try again..." << "\n";
+        cout << "\nPress any key to continue...";
+        getch();
+        sortStudentInfo();
+    }
+    sortStudentInfo();
+}
