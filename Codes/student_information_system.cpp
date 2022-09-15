@@ -677,3 +677,260 @@ void deleteProbatedStudents() {
         }
     }
 }
+
+bool foundId(int id) {
+    student *cur = head;
+    while (cur != NULL) {
+        if (cur -> id == id) {
+            return true;
+        } cur = cur -> next;
+    } return false;
+}
+
+bool foundName(string name) {
+    student *cur = head;
+    while (cur != NULL) {
+        if (compareString(cur -> name, name)) {
+            return true;
+        } cur = cur -> next;
+    } return false;
+}
+
+bool compareString(string s1, string s2) {
+    string str1 = s1;
+    string str2 = s2;
+    transform(str1.begin(), str1.end(), str1.begin(), ::tolower);
+    transform(str2.begin(), str2.end(), str2.begin(), ::tolower);
+
+    if (str1 == str2) return true;
+    else return false;
+}
+
+void searchById(int id) {
+    student *cur = head;
+    while (cur != NULL) {
+        if (cur -> id == id) {
+            printSpecificID(cur);
+            return;
+        } cur = cur -> next;
+    }
+    cout << "Invalid ID!" << endl;
+}
+
+void searchByName(string name) {
+    cout << "\nStudent List is Displayed by Name " << endl;
+    student *cur = head;
+    int cnt = 0;
+    while (cur != NULL) {
+        if (compareString(cur -> name, name)) {
+            printSpecificID(cur);
+            cnt++;
+        } cur = cur -> next;
+    }
+    if (cnt == 0) {
+        cout << "Invalid Name!" << endl;
+    }
+}
+
+void searchByCompletedCredits(double completedCredits, string dir) {
+    cout << "\nStudent List is Displayed by Completed Credits" << endl;
+    student *cur = head;
+    int cnt = 0;
+    if (dir == "=") {
+        while (cur != NULL) {
+            if (cur -> completedCredits == completedCredits) {
+                printSpecificID(cur);
+                cnt++;
+            } cur = cur -> next;
+        }
+    }
+    else if (dir == "<") {
+         while (cur != NULL) {
+            if (cur -> completedCredits < completedCredits && cur -> completedCredits != -1.0) {
+                printSpecificID(cur);
+                cnt++;
+            } cur = cur -> next;
+        }
+    }
+    else if (dir == ">") {
+        while (cur != NULL) {
+            if (cur -> completedCredits > completedCredits) {
+                printSpecificID(cur);
+                cnt++;
+            } cur = cur -> next;
+        }
+    }
+    else if (dir == ">=") {
+        while (cur != NULL) {
+            if (cur -> completedCredits >= completedCredits) {
+                printSpecificID(cur);
+                cnt++;
+            } cur = cur -> next;
+        }
+    }
+    else if (dir == "<=") {
+        while (cur != NULL) {
+            if (cur -> completedCredits <= completedCredits && cur -> completedCredits != -1.0) {
+                printSpecificID(cur);
+                cnt++;
+            } cur = cur -> next;
+        }
+    }
+
+    if (cnt == 0) {
+        cout << "Not found!" << endl;
+    }
+}
+
+void searchByCGPA(double cgpa, string dir) {
+    cout << "Student List is Displayed by CGPA" << endl;
+    student *cur = head;
+    int cnt = 0;
+
+    if (dir == "=") {
+        while (cur != NULL) {
+            if (cur -> cgpa == cgpa) {
+                printSpecificID(cur);
+                cnt++;
+            } cur = cur -> next;
+        }
+    }
+    else if (dir == "<" && cur -> cgpa != -1.0) {
+         while (cur != NULL) {
+            if (cur -> cgpa < cgpa) {
+                printSpecificID(cur);
+                cnt++;
+            } cur = cur -> next;
+        }
+    }
+    else if (dir == ">") {
+        while (cur != NULL) {
+            if (cur -> cgpa > cgpa) {
+                printSpecificID(cur);
+                cnt++;
+            } cur = cur -> next;
+        }
+    }
+    else if (dir == ">=") {
+        while (cur != NULL) {
+            if (cur -> cgpa >= cgpa) {
+                printSpecificID(cur);
+                cnt++;
+            } cur = cur -> next;
+        }
+    }
+    else if (dir == "<=") {
+        while (cur != NULL) {
+            if (cur -> cgpa <= cgpa && cur -> cgpa != -1.0) {
+                printSpecificID(cur);
+                cnt++;
+            } cur = cur -> next;
+        }
+    }
+
+    if (cnt == 0) {
+        cout << "CGPA Not Found!" << endl;
+    }
+}
+
+void searchByContact(string contact) {
+    cout << "Student List is Displayed by Contact" << endl;
+    student *cur = head;
+    while (cur != NULL) {
+        if (cur -> contact == contact) {
+            printSpecificID(cur);
+            return;
+        } cur = cur -> next;
+    }
+    cout << "\nInvalid Contact Number!" << endl;
+}
+
+void searchByBloodGroup(string bloodGroup) {
+    cout << "Student List is Displayed by Blood Group" << endl;
+    student *cur = head;
+    int cnt = 0;
+    while (cur != NULL) {
+        if (compareString(cur -> bloodGroup, bloodGroup)) {
+            printSpecificID(cur);
+            cnt++;
+        } cur = cur -> next;
+    }
+    if (cnt == 0) {
+        cout << "\nInvalid Blood Group!" << endl;
+    }
+}
+
+void searchByDepartment(string department) {
+    cout << "Student List is Displayed by Department" << endl;
+    student *cur = head;
+    int cnt = 0;
+    while (cur != NULL) {
+        if (compareString(cur -> department, department)) {
+            printSpecificID(cur);
+            cnt++;
+        } cur = cur -> next;
+    }
+    if (cnt == 0) {
+        cout << "\nStudents Not found!" << endl;
+    }
+}
+
+void searchBySemester(int semester) {
+    cout << "Student List is Displayed by Semester" << endl;
+    student *cur = head;
+    int cnt = 0;
+    while (cur != NULL) {
+        if (cur -> semester == semester) {
+            printSpecificID(cur);
+            cnt++;
+        } cur = cur -> next;
+    }
+    if (cnt == 0) {
+        cout << "\nStudents Not found!" << endl;
+    }
+}
+
+void searchByUnpaidStudents() {
+    cout << "Student List is Displayed by Payment Status" << endl;
+    student *cur = head;
+    int cnt = 0;
+    while (cur != NULL) {
+        if (cur -> isPaymentDone == 0) {
+            printSpecificID(cur);
+            cnt++;
+        } cur = cur -> next;
+    }
+    if (cnt == 0) {
+        cout << "\nPayment of All Students is Cleared" << endl;
+    }
+}
+
+void searchByGraduateStudents() {
+    cout << "Student List is Displayed by Graduate Status" << endl;
+    student *cur = head;
+    int cnt = 0;
+    while (cur != NULL) {
+        if (cur -> isGraduated == 1) {
+            printSpecificID(cur);
+            cnt++;
+        } cur = cur -> next;
+    }
+    if (cnt == 0) {
+        cout << "\nNo Graduate Students!" << endl;
+    }
+}
+
+void searchByProbationStudents() {
+    cout << "Student List is Displayed by Probation Students" << endl;
+    student *cur = head;
+    int cnt = 0;
+    while (cur != NULL) {
+        if (cur -> cgpa < 2.00 && cur -> cgpa != -1.0 && cur -> cgpa >= 0.0) {
+            printSpecificID(cur);
+            cnt++;
+        } cur = cur -> next;
+    }
+    if (cnt == 0) {
+        cout << "\n\nNo Probated Student!" << endl;
+    }
+}
