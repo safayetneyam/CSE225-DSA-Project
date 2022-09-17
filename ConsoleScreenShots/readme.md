@@ -1,1 +1,1 @@
-## Console ScreenShots
+## Console Screenshots
