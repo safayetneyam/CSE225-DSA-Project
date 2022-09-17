@@ -1,0 +1,17 @@
+		Report on Specific ID 
+
+
+	ID  		: 1921457042
+	Name		: Tushar Rezaul
+	Credits		: 52
+	CGPA		: 2.44
+	DoB		: 2-12-1995
+	Email		: rezaul.tushar@northsouth.edu
+	Contact		: 01994295682
+	Address		: Panchagarh, Rangpur
+	Blood Group	: AB-
+	Department	: ENG
+	Semester	: 7
+	Paid?		: YES
+	Scholarship?	: NO
+	Graduated?	: NO

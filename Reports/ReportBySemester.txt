@@ -1,0 +1,20 @@
+		Report by Semester 10 Students	
+
+  Previewing Student: 1
+
+	ID  		: 1913069642
+	Name		: Farhan Sadik Arnob
+	Credits		: 85
+	CGPA		: 3.17
+	DoB		: 1-8-1993
+	Email		: arnob.farhan1@northsouth.edu
+	Contact		: 01798749297
+	Address		: Manikganj, Dhaka
+	Blood Group	: AB+
+	Department	: DPM
+	Semester	: 10
+	Paid?		: YES
+	Scholarship?	: YES
+	Graduated?	: NO
+
+

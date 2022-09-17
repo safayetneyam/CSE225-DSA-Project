@@ -1,0 +1,128 @@
+		Report of Students having CGPA Equal or Greater than 3.5
+
+  Previewing Student: 1
+
+	ID  		: 1912141042
+	Name		: Mahmudul Hasan
+	Credits		: 11
+	CGPA		: 4
+	DoB		: 17-07-2002
+	Email		: hasan.mahmudul4@northsouth.edu
+	Contact		: 01680943555
+	Address		: Bagerhat, Khulna
+	Blood Group	: AB+
+	Department	: DMP
+	Semester	: 1
+	Paid?		: YES
+	Scholarship?	: YES
+	Graduated?	: NO
+
+
+  Previewing Student: 2
+
+	ID  		: 1610624642
+	Name		: Waria Roy
+	Credits		: 145
+	CGPA		: 3.98
+	DoB		: 19-07-1990
+	Email		: roy.waria@northsouth.edu
+	Contact		: 01340624642
+	Address		: Dhaka
+	Blood Group	: B+
+	Department	: BBA
+	Semester	: 13
+	Paid?		: YES
+	Scholarship?	: NO
+	Graduated?	: YES
+
+
+  Previewing Student: 3
+
+	ID  		: 1631238642
+	Name		: Tanveer Ahmed
+	Credits		: 130
+	CGPA		: 4
+	DoB		: 4-07-1995
+	Email		: tanveer.ahmed@northsouth.edu
+	Contact		: 01321631864
+	Address		: Pirojpur, Barisal
+	Blood Group	: B+
+	Department	: CSE
+	Semester	: 12
+	Paid?		: NO
+	Scholarship?	: NO
+	Graduated?	: YES
+
+
+  Previewing Student: 4
+
+	ID  		: 2013409642
+	Name		: Raian Ruku
+	Credits		: 77
+	CGPA		: 3.92
+	DoB		: 28-12-2000
+	Email		: raian.ruku@northsouth.edu
+	Contact		: 01753878427
+	Address		: Chuadanga, Khulna
+	Blood Group	: B-
+	Department	: BBA
+	Semester	: 9
+	Paid?		: YES
+	Scholarship?	: YES
+	Graduated?	: NO
+
+
+  Previewing Student: 5
+
+	ID  		: 2122146630
+	Name		: Rifat Loy
+	Credits		: 25
+	CGPA		: 3.77
+	DoB		: 29-7-1998
+	Email		: rifat.loy@northsouth.edu
+	Contact		: 01611124216
+	Address		: Noakhali, Chittagong
+	Blood Group	: AB-
+	Department	: BBA
+	Semester	: 3
+	Paid?		: YES
+	Scholarship?	: YES
+	Graduated?	: NO
+
+
+  Previewing Student: 6
+
+	ID  		: 1821712625
+	Name		: Mahfuz Ahmed
+	Credits		: 59
+	CGPA		: 3.67
+	DoB		: 7-7-1997
+	Email		: mahfuz.ahmed@northsouth.edu
+	Contact		: 01743214927
+	Address		: Dhaka, Bangladesh
+	Blood Group	: B+
+	Department	: ECE
+	Semester	: 12
+	Paid?		: NO
+	Scholarship?	: YES
+	Graduated?	: NO
+
+
+  Previewing Student: 7
+
+	ID  		: 1531152630
+	Name		: Shakib Mirza
+	Credits		: 47
+	CGPA		: 3.52
+	DoB		: 09-09-2022
+	Email		: qader.mirza@northsouth.edu
+	Contact		: 01711224466
+	Address		: Dhanmondi, Dhaka, Bangladesh
+	Blood Group	: O-
+	Department	: CSE
+	Semester	: 5
+	Paid?		: NO
+	Scholarship?	: YES
+	Graduated?	: NO
+
+

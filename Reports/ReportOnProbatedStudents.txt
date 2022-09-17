@@ -1,0 +1,38 @@
+		Report on Probated Students	
+
+  Previewing Student: 1
+
+	ID  		: 2013302642
+	Name		: Mahobub Siam
+	Credits		: 93
+	CGPA		: 1.87
+	DoB		: 31-01-1999
+	Email		: mahobub.siam@northsouth.edu
+	Contact		: 01747367237
+	Address		: Netrokona, Mymensingh
+	Blood Group	: A+
+	Department	: ECE
+	Semester	: 11
+	Paid?		: YES
+	Scholarship?	: NO
+	Graduated?	: NO
+
+
+  Previewing Student: 2
+
+	ID  		: 1512350030
+	Name		: Farhan Faiyaz
+	Credits		: 77
+	CGPA		: 1.99
+	DoB		: 6-12-1996
+	Email		: Faiyaz.Farhan@northsouth.edu
+	Contact		: 01524407524
+	Address		: Kushtia, Khulna
+	Blood Group	: B+
+	Department	: BBA
+	Semester	: 13
+	Paid?		: NO
+	Scholarship?	: NO
+	Graduated?	: NO
+
+

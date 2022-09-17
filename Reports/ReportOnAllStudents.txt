@@ -1,0 +1,380 @@
+		Report on All Students
+
+  Previewing Student: 1
+
+	ID  		: 1925022090
+	Name		: Ahmad Hasan
+	Credits		: 152
+	CGPA		: 3.3
+	DoB		: 20-01-1997
+	Email		: hasan.ahmad@northsouth.edu
+	Contact		: 01729094123
+	Address		: Madaripur, Dhaka
+	Blood Group	: B+
+	Department	: BBA
+	Semester	: 15
+	Paid?		: YES
+	Scholarship?	: NO
+	Graduated?	: YES
+
+
+  Previewing Student: 2
+
+	ID  		: 1912141042
+	Name		: Mahmudul Hasan
+	Credits		: 11
+	CGPA		: 4
+	DoB		: 17-07-2002
+	Email		: hasan.mahmudul4@northsouth.edu
+	Contact		: 01680943555
+	Address		: Bagerhat, Khulna
+	Blood Group	: AB+
+	Department	: DMP
+	Semester	: 1
+	Paid?		: YES
+	Scholarship?	: YES
+	Graduated?	: NO
+
+
+  Previewing Student: 3
+
+	ID  		: 2125390653
+	Name		: Sami Ashraf
+	Credits		: 49
+	CGPA		: 2.9
+	DoB		: 02-09-1998
+	Email		: sami.ashraf@northsouth.edu
+	Contact		: 01711237778
+	Address		: Natore, Rajshahi
+	Blood Group	: O+
+	Department	: ENG
+	Semester	: 7
+	Paid?		: NO
+	Scholarship?	: YES
+	Graduated?	: NO
+
+
+  Previewing Student: 4
+
+	ID  		: 1721224642
+	Name		: Asrafik Dinar
+	Credits		: 125
+	CGPA		: 3.1
+	DoB		: 01-09-1995
+	Email		: asrafik.dinar@northsouth.edu
+	Contact		: 01987612355
+	Address		: Moulvibazar, Sylhet
+	Blood Group	: O-
+	Department	: ECE
+	Semester	: 14
+	Paid?		: YES
+	Scholarship?	: YES
+	Graduated?	: NO
+
+
+  Previewing Student: 5
+
+	ID  		: 1825102672
+	Name		: Fahmida Dina
+	Credits		: 99
+	CGPA		: 2.13
+	DoB		: 23-11-1991
+	Email		: fahmida.dina@northsouth.edu
+	Contact		: 01823332672
+	Address		: Nilphamari, Rangpur
+	Blood Group	: A-
+	Department	: BBA
+	Semester	: 12
+	Paid?		: YES
+	Scholarship?	: NO
+	Graduated?	: NO
+
+
+  Previewing Student: 6
+
+	ID  		: 1610624642
+	Name		: Waria Roy
+	Credits		: 145
+	CGPA		: 3.98
+	DoB		: 19-07-1990
+	Email		: roy.waria@northsouth.edu
+	Contact		: 01340624642
+	Address		: Dhaka
+	Blood Group	: B+
+	Department	: BBA
+	Semester	: 13
+	Paid?		: YES
+	Scholarship?	: NO
+	Graduated?	: YES
+
+
+  Previewing Student: 7
+
+	ID  		: 1521205660
+	Name		: Farahnaz Iqbal
+	Credits		: 130
+	CGPA		: 3.01
+	DoB		: 12-02-1992
+	Email		: farahnaz.iqbal@northsouth.edu
+	Contact		: 01821885660
+	Address		: Barguna, Barisal
+	Blood Group	: B-
+	Department	: ECE
+	Semester	: 12
+	Paid?		: YES
+	Scholarship?	: NO
+	Graduated?	: YES
+
+
+  Previewing Student: 8
+
+	ID  		: 1912991630
+	Name		: Efaz Bari
+	Credits		: 77
+	CGPA		: 2.33
+	DoB		: 30-01-1995
+	Email		: efaz.bari@northsouth.edu
+	Contact		: 01677844327
+	Address		: Gazipur, Dhaka
+	Blood Group	: A-
+	Department	: BBA
+	Semester	: 7
+	Paid?		: YES
+	Scholarship?	: NO
+	Graduated?	: NO
+
+
+  Previewing Student: 9
+
+	ID  		: 2144426718
+	Name		: Wasif Alam
+	Credits		: 11
+	CGPA		: 2.98
+	DoB		: 12-05-2003
+	Email		: wasif.alam@northsouth.edu
+	Contact		: 01794119321
+	Address		: Narail, Khulna
+	Blood Group	: A-
+	Department	: ECE
+	Semester	: 2
+	Paid?		: YES
+	Scholarship?	: NO
+	Graduated?	: NO
+
+
+  Previewing Student: 10
+
+	ID  		: 1410076042
+	Name		: Abir Roy
+	Credits		: 135
+	CGPA		: 2.01
+	DoB		: 09-02-1990
+	Email		: abir.roy@northsouth.edu
+	Contact		: 01510076042
+	Address		: Jamalpur, Mymensingh
+	Blood Group	: AB+
+	Department	: BBA
+	Semester	: 16
+	Paid?		: NO
+	Scholarship?	: NO
+	Graduated?	: YES
+
+
+  Previewing Student: 11
+
+	ID  		: 1631238642
+	Name		: Tanveer Ahmed
+	Credits		: 130
+	CGPA		: 4
+	DoB		: 4-07-1995
+	Email		: tanveer.ahmed@northsouth.edu
+	Contact		: 01321631864
+	Address		: Pirojpur, Barisal
+	Blood Group	: B+
+	Department	: CSE
+	Semester	: 12
+	Paid?		: NO
+	Scholarship?	: NO
+	Graduated?	: YES
+
+
+  Previewing Student: 12
+
+	ID  		: 1913069642
+	Name		: Farhan Sadik Arnob
+	Credits		: 85
+	CGPA		: 3.17
+	DoB		: 1-8-1993
+	Email		: arnob.farhan1@northsouth.edu
+	Contact		: 01798749297
+	Address		: Manikganj, Dhaka
+	Blood Group	: AB+
+	Department	: DPM
+	Semester	: 10
+	Paid?		: YES
+	Scholarship?	: YES
+	Graduated?	: NO
+
+
+  Previewing Student: 13
+
+	ID  		: 1711023642
+	Name		: Saifur Rahman
+	Credits		: 129
+	CGPA		: 2.81
+	DoB		: 3-7-1996
+	Email		: saifur.rahman05@northsouth.edu
+	Contact		: 01736124210
+	Address		: Tangail, Dhaka
+	Blood Group	: O-
+	Department	: ENG
+	Semester	: 11
+	Paid?		: YES
+	Scholarship?	: NO
+	Graduated?	: NO
+
+
+  Previewing Student: 14
+
+	ID  		: 2013409642
+	Name		: Raian Ruku
+	Credits		: 77
+	CGPA		: 3.92
+	DoB		: 28-12-2000
+	Email		: raian.ruku@northsouth.edu
+	Contact		: 01753878427
+	Address		: Chuadanga, Khulna
+	Blood Group	: B-
+	Department	: BBA
+	Semester	: 9
+	Paid?		: YES
+	Scholarship?	: YES
+	Graduated?	: NO
+
+
+  Previewing Student: 15
+
+	ID  		: 2013302642
+	Name		: Mahobub Siam
+	Credits		: 93
+	CGPA		: 1.87
+	DoB		: 31-01-1999
+	Email		: mahobub.siam@northsouth.edu
+	Contact		: 01747367237
+	Address		: Netrokona, Mymensingh
+	Blood Group	: A+
+	Department	: ECE
+	Semester	: 11
+	Paid?		: YES
+	Scholarship?	: NO
+	Graduated?	: NO
+
+
+  Previewing Student: 16
+
+	ID  		: 1921457042
+	Name		: Tushar Rezaul
+	Credits		: 52
+	CGPA		: 2.44
+	DoB		: 2-12-1995
+	Email		: rezaul.tushar@northsouth.edu
+	Contact		: 01994295682
+	Address		: Panchagarh, Rangpur
+	Blood Group	: AB-
+	Department	: ENG
+	Semester	: 7
+	Paid?		: YES
+	Scholarship?	: NO
+	Graduated?	: NO
+
+
+  Previewing Student: 17
+
+	ID  		: 1512350030
+	Name		: Farhan Faiyaz
+	Credits		: 77
+	CGPA		: 1.99
+	DoB		: 6-12-1996
+	Email		: Faiyaz.Farhan@northsouth.edu
+	Contact		: 01524407524
+	Address		: Kushtia, Khulna
+	Blood Group	: B+
+	Department	: BBA
+	Semester	: 13
+	Paid?		: NO
+	Scholarship?	: NO
+	Graduated?	: NO
+
+
+  Previewing Student: 18
+
+	ID  		: 2121622642
+	Name		: Shahrukh Khan
+	Credits		: 22
+	CGPA		: 2.8
+	DoB		: 1-4-2002
+	Email		: shahrukh.khan025@northsouth.edu
+	Contact		: 01704995365
+	Address		: Dhaka, Bangladesh
+	Blood Group	: O-
+	Department	: ECE
+	Semester	: 4
+	Paid?		: YES
+	Scholarship?	: NO
+	Graduated?	: NO
+
+
+  Previewing Student: 19
+
+	ID  		: 2122146630
+	Name		: Rifat Loy
+	Credits		: 25
+	CGPA		: 3.77
+	DoB		: 29-7-1998
+	Email		: rifat.loy@northsouth.edu
+	Contact		: 01611124216
+	Address		: Noakhali, Chittagong
+	Blood Group	: AB-
+	Department	: BBA
+	Semester	: 3
+	Paid?		: YES
+	Scholarship?	: YES
+	Graduated?	: NO
+
+
+  Previewing Student: 20
+
+	ID  		: 1821712625
+	Name		: Mahfuz Ahmed
+	Credits		: 59
+	CGPA		: 3.67
+	DoB		: 7-7-1997
+	Email		: mahfuz.ahmed@northsouth.edu
+	Contact		: 01743214927
+	Address		: Dhaka, Bangladesh
+	Blood Group	: B+
+	Department	: ECE
+	Semester	: 12
+	Paid?		: NO
+	Scholarship?	: YES
+	Graduated?	: NO
+
+
+  Previewing Student: 21
+
+	ID  		: 1531152630
+	Name		: Shakib Mirza
+	Credits		: 47
+	CGPA		: 3.52
+	DoB		: 09-09-2022
+	Email		: qader.mirza@northsouth.edu
+	Contact		: 01711224466
+	Address		: Dhanmondi, Dhaka, Bangladesh
+	Blood Group	: O-
+	Department	: CSE
+	Semester	: 5
+	Paid?		: NO
+	Scholarship?	: YES
+	Graduated?	: NO
+
+
