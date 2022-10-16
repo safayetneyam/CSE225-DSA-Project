@@ -6,9 +6,9 @@ This is a comprehensive term project **'Student Information System'** based on b
 ---
 
 ### Important
-* [Codebase](https://github.com/tan45Nadim/CSE225-DSA-Project/blob/main/Codes/student_information_system.cpp) 
-* [Project Structure](https://github.com/tan45Nadim/CSE225-DSA-Project/blob/main/Others/base_documentation.md)
-* [Console Outcome](https://github.com/tan45Nadim/CSE225-DSA-Project/tree/main/ConsoleScreenShots) 
+* [Codebase](https://github.com/safayetneyam/CSE225-DSA-Project/blob/main/Codes/student_information_system.cpp) 
+* [Project Structure](https://github.com/safayetneyam/CSE225-DSA-Project/blob/main/Others/base_documentation.md)
+* [Console Outcome](https://github.com/safayetneyam/CSE225-DSA-Project/tree/main/ConsoleScreenShots) 
 
 
 ---
